@@ -1,17 +1,10 @@
-# Claude Code folder (AI assistant workspace)
-.claude/
-
-# Documentation folder (if contains temporary/private docs)
+# Documentation folder
 Docs/
 
 # Documentation files
 *.md
 !budgetbuddy-backend/README.md
 !budgetbuddy-frontend/README.md
-
-# Temporary files
-nul
-section22_dark_mode_standardization.txt
 
 # Environment files (sensitive credentials)
 .env
