@@ -1,0 +1,141 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// User Model - Stores user authentication and profile information
+model User {
+  id              String     @id @default(uuid())
+  email           String     @unique
+  password        String
+  name            String?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  // Relations
+  expenses        Expense[]
+  incomes         Income[]
+  budgetLimits    BudgetLimit[]
+  recurringExpenses RecurringExpense[]
+  recurringIncomes RecurringIncome[]
+  chatMessages    ChatMessage[]
+}
+
+// Expense Model - Core expense tracking
+model Expense {
+  id              String     @id @default(uuid())
+  userId          String
+  amount          Float
+  description     String
+  category        String
+  date            DateTime
+  isRecurring     Boolean    @default(false)
+  recurringId     String?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  // Relations
+  user            User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  recurringExpense RecurringExpense? @relation(fields: [recurringId], references: [id], onDelete: SetNull)
+
+  @@index([userId, date])
+}
+
+// Income Model - Track income entries
+model Income {
+  id              String     @id @default(uuid())
+  userId          String
+  amount          Float
+  source          String?
+  date            DateTime
+  isRecurring     Boolean    @default(false)
+  recurringId     String?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  // Relations
+  user            User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  recurringIncome RecurringIncome? @relation(fields: [recurringId], references: [id], onDelete: SetNull)
+
+  @@index([userId, date])
+}
+
+// BudgetLimit Model - Category-based budget tracking
+model BudgetLimit {
+  id              String     @id @default(uuid())
+  userId          String
+  category        String
+  limitAmount     Float
+  month           DateTime
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  // Relations
+  user            User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, category, month])
+}
+
+// RecurringExpense Model - Automated recurring expense transactions
+model RecurringExpense {
+  id              String     @id @default(uuid())
+  userId          String
+  amount          Float
+  description     String
+  category        String
+  frequency       String     // 'daily', 'weekly', 'monthly', 'yearly'
+  startDate       DateTime
+  nextDate        DateTime
+  endDate         DateTime?  // Optional: when to stop auto-generation
+  isActive        Boolean    @default(true)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  // Relations
+  user            User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expenses        Expense[]
+
+  @@index([userId, nextDate, isActive])
+}
+
+// RecurringIncome Model - Automated recurring income transactions
+model RecurringIncome {
+  id              String     @id @default(uuid())
+  userId          String
+  amount          Float
+  source          String
+  frequency       String     // 'daily', 'weekly', 'monthly', 'yearly'
+  startDate       DateTime
+  nextDate        DateTime
+  endDate         DateTime?  // Optional: when to stop auto-generation
+  isActive        Boolean    @default(true)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  // Relations
+  user            User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  incomes         Income[]
+
+  @@index([userId, nextDate, isActive])
+}
+
+// ChatMessage Model - AI Chatbot conversation history
+model ChatMessage {
+  id              String     @id @default(uuid())
+  userId          String
+  role            String     // 'user' or 'assistant'
+  content         String     @db.Text
+  timestamp       DateTime   @default(now())
+
+  // Relations
+  user            User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, timestamp])
+  @@map("chat_messages")
+}

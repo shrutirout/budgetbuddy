@@ -1,0 +1,43 @@
+# Claude Code folder (AI assistant workspace)
+.claude/
+
+# Documentation folder (if contains temporary/private docs)
+Docs/
+
+# Documentation files
+*.md
+!budgetbuddy-backend/README.md
+!budgetbuddy-frontend/README.md
+
+# Temporary files
+nul
+section22_dark_mode_standardization.txt
+
+# Environment files (sensitive credentials)
+.env
+*.env.local
+
+# Node modules (dependencies - too large, reinstalled via npm install)
+node_modules/
+budgetbuddy-backend/node_modules/
+budgetbuddy-frontend/node_modules/
+
+# Build outputs
+budgetbuddy-frontend/dist/
+budgetbuddy-frontend/dist-ssr/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
