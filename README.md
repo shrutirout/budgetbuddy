@@ -2,10 +2,6 @@
 
 A full-stack personal finance management application powered by AI. Track expenses, manage budgets, analyze spending patterns, and get personalized financial advice.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Node](https://img.shields.io/badge/node-%3E%3D16.0.0-brightgreen.svg)
-![React](https://img.shields.io/badge/react-18.x-blue.svg)
-
 ---
 
 ## 📋 Table of Contents
@@ -1142,79 +1138,6 @@ budgetbuddy/
 
 ---
 
-## 🤝 Contributing
-
-We welcome contributions! Here's how you can help:
-
-### Development Workflow
-
-1. **Fork the Repository**
-```bash
-git clone https://github.com/yourusername/budgetbuddy.git
-cd budgetbuddy
-git checkout -b feature/your-feature-name
-```
-
-2. **Make Your Changes**
-- Follow existing code style
-- Add comments for complex logic
-- Write meaningful commit messages
-
-3. **Test Your Changes**
-```bash
-# Backend tests
-cd budgetbuddy-backend
-npm test
-
-# Frontend tests
-cd budgetbuddy-frontend
-npm test
-```
-
-4. **Submit Pull Request**
-- Push to your fork
-- Create pull request with clear description
-- Reference any related issues
-
-### Code Style Guidelines
-
-**Backend:**
-- Use async/await for asynchronous operations
-- Handle errors with try-catch blocks
-- Validate input at controller level
-- Keep functions focused and single-purpose
-- Use descriptive variable names
-
-**Frontend:**
-- Use functional components with hooks
-- Keep components under 300 lines
-- Extract reusable logic to custom hooks
-- Use Tailwind CSS for styling
-- Follow React best practices
-
-### Commit Message Format
-
-```
-feat: Add expense filtering by multiple categories
-fix: Resolve timezone issue in date picker
-docs: Update API documentation for budgets
-style: Format code with prettier
-refactor: Extract common validation logic
-test: Add unit tests for categorization service
-```
-
-### Areas for Contribution
-
-- 🐛 Bug fixes
-- ✨ New features
-- 📝 Documentation improvements
-- 🎨 UI/UX enhancements
-- ⚡ Performance optimizations
-- 🧪 Test coverage
-- 🌐 Internationalization
-
----
-
 ## 📄 License
 
 This project is licensed under the MIT License.
@@ -1242,62 +1165,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
-
----
-
-## 📞 Support & Contact
-
-### Issues & Bug Reports
-- GitHub Issues: [github.com/yourusername/budgetbuddy/issues](https://github.com/yourusername/budgetbuddy/issues)
-- Include detailed description, steps to reproduce, and screenshots if applicable
-
-### Questions & Discussions
-- GitHub Discussions: [github.com/yourusername/budgetbuddy/discussions](https://github.com/yourusername/budgetbuddy/discussions)
-- Ask questions, share ideas, and help others
-
-### Documentation
-- Full API Documentation: See [API Documentation](#api-documentation) section
-- Project Structure: See [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)
-- Architecture Details: See [Architecture](#architecture) section
-
----
-
-## 🙏 Acknowledgments
-
-- **Google Gemini AI** for intelligent expense categorization and financial advice
-- **Prisma** for elegant database ORM
-- **Chart.js** for beautiful data visualizations
-- **Tailwind CSS** for rapid UI development
-- **Vite** for lightning-fast build tool
-- **React Community** for excellent libraries and tools
-
----
-
-## 🗺️ Roadmap
-
-### Planned Features
-
-**Version 2.0**
-- [ ] Multi-currency support
-- [ ] Bank account integration (Plaid API)
-- [ ] Mobile app (React Native)
-- [ ] Receipt scanning with OCR
-- [ ] Bill reminders and notifications
-- [ ] Shared budgets for families
-- [ ] Investment tracking
-- [ ] Tax report generation
-- [ ] Goal setting and tracking
-- [ ] Email reports (weekly/monthly)
-
-**Version 2.1**
-- [ ] Smart notifications
-- [ ] Predictive analytics
-- [ ] Debt payoff calculator
-- [ ] Budget templates
-- [ ] Custom categories
-- [ ] Data import/export (CSV, QIF)
-- [ ] Two-factor authentication
-- [ ] Social features (optional sharing)
 
 ---
 
@@ -1347,18 +1214,6 @@ Built this project to learn? Here are key concepts covered:
 
 ---
 
-## 💡 Tips for Success
-
-1. **Start Small**: Begin with basic expense tracking before exploring advanced features
-2. **Use AI Wisely**: Let AI categorize expenses, but review and correct if needed
-3. **Set Realistic Budgets**: Start conservative and adjust based on actual spending
-4. **Review Regularly**: Check analytics weekly to stay informed
-5. **Export Data**: Regularly backup your data using export features
-6. **Ask the Chatbot**: Use AI advisor for personalized insights
-7. **Plan Ahead**: Use recurring transactions for predictable expenses/income
-
----
-
 ## 🏁 Final Notes
 
 BudgetBuddy is designed to make personal finance management simple, intelligent, and accessible. Whether you're tracking daily expenses, planning budgets, or seeking financial insights, this application provides the tools you need to take control of your finances.
@@ -1376,6 +1231,4 @@ BudgetBuddy is designed to make personal finance management simple, intelligent,
 
 ---
 
-**Made with ❤️ by BudgetBuddy Team**
 
-*Last Updated: December 2025*
