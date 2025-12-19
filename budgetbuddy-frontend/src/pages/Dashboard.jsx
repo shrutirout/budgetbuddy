@@ -54,10 +54,17 @@ const Dashboard = () => {
         incomeUrl = `/income?startDate=${startDateISO}&endDate=${endDateISO}`;
       }
 
+      let budgetUrl = '/budget/status';
+      if (selectedMonth !== 'all-time') {
+        const [year, month] = selectedMonth.split('-').map(Number);
+        const monthDate = `${year}-${String(month).padStart(2, '0')}-01`;
+        budgetUrl = `/budget/status?month=${monthDate}`;
+      }
+
       const [expensesRes, incomeRes, budgetRes] = await Promise.all([
         api.get(expensesUrl),
         api.get(incomeUrl),
-        api.get('/budget/status')
+        api.get(budgetUrl)
       ]);
 
       const expenses = expensesRes.data.expenses || [];
