@@ -383,44 +383,77 @@ function Budget() {
 
         {/* Create/Edit Modal */}
         {showModal && (
-          <div className="modal-overlay" onClick={closeModal}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <div className="modal-header">
-                <h2>{editingBudget ? 'Edit Budget Limit' : 'Set Budget Limit'}</h2>
-                <button onClick={closeModal} className="close-btn">&times;</button>
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4"
+            onClick={closeModal}
+          >
+            <div
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md p-6"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal header */}
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+                  {editingBudget ? 'Edit Budget Limit' : 'Set Budget Limit'}
+                </h2>
+                <button
+                  onClick={closeModal}
+                  className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-2xl leading-none"
+                >
+                  &times;
+                </button>
               </div>
 
-              <form onSubmit={editingBudget ? handleUpdate : handleCreate}>
-                <div className="form-group">
-                  <label htmlFor="category">Category *</label>
-                  <input
-                    type="text"
+              <form onSubmit={editingBudget ? handleUpdate : handleCreate} className="space-y-4">
+                {/* Category */}
+                <div>
+                  <label htmlFor="category" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Category *
+                  </label>
+                  <select
                     id="category"
                     name="category"
                     value={formData.category}
                     onChange={handleInputChange}
-                    placeholder="e.g., Food, Transport, Entertainment"
                     required
-                  />
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary"
+                  >
+                    <option value="">Select a category</option>
+                    <option value="Housing">Housing</option>
+                    <option value="Food">Food</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Personal Care">Personal Care</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Miscellaneous">Miscellaneous</option>
+                  </select>
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="limitAmount">Limit Amount ($) *</label>
+                {/* Limit Amount */}
+                <div>
+                  <label htmlFor="limitAmount" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Limit Amount (₹) *
+                  </label>
                   <input
                     type="number"
                     id="limitAmount"
                     name="limitAmount"
                     value={formData.limitAmount}
                     onChange={handleInputChange}
-                    placeholder="500"
+                    placeholder="5000"
                     step="0.01"
                     min="0.01"
                     required
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="month">Month *</label>
+                {/* Month */}
+                <div>
+                  <label htmlFor="month" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Month *
+                  </label>
                   <input
                     type="month"
                     id="month"
@@ -428,16 +461,30 @@ function Budget() {
                     value={formData.month}
                     onChange={handleInputChange}
                     required
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
 
-                {error && <div className="form-error">{error}</div>}
+                {/* Error */}
+                {error && (
+                  <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-sm text-red-700 dark:text-red-400">
+                    {error}
+                  </div>
+                )}
 
-                <div className="form-actions">
-                  <button type="button" onClick={closeModal} className="btn btn-secondary">
+                {/* Actions */}
+                <div className="flex gap-3 pt-2">
+                  <button
+                    type="button"
+                    onClick={closeModal}
+                    className="flex-1 px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition font-medium"
+                  >
                     Cancel
                   </button>
-                  <button type="submit" className="btn btn-primary">
+                  <button
+                    type="submit"
+                    className="flex-1 px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-600 transition font-medium"
+                  >
                     {editingBudget ? 'Update Budget' : 'Create Budget'}
                   </button>
                 </div>

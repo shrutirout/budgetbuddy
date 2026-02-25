@@ -32,8 +32,9 @@ api.interceptors.response.use(
       // Server responded with error status
       const { status, data } = error.response;
 
-      if (status === 401) {
-        // Unauthorized - clear token and redirect to login
+      if (status === 401 && window.location.pathname !== '/login') {
+        // Token expired/invalid - clear storage and send back to login
+        // Skip if already on login page to avoid swallowing the error message
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         window.location.href = '/login';

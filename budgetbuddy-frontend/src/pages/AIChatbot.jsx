@@ -41,7 +41,8 @@ const AIChatbot = () => {
       const history = response.data.messages || [];
 
       if (history.length > 0) {
-        setMessages(history.reverse());
+        // Backend already returns messages in chronological order (oldest first)
+        setMessages(history);
       } else {
         setMessages([{
           role: 'assistant',

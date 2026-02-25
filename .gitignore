@@ -34,3 +34,9 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Claude Code internal files
+.claude/
+
+# Windows artifacts from shell redirects
+nul

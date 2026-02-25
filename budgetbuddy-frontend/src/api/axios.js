@@ -43,8 +43,8 @@ api.interceptors.response.use(
     return response;
   },
   (error) => {
-    if (error.response?.status === 401) {
-      // Token expired or invalid
+    if (error.response?.status === 401 && window.location.pathname !== '/login') {
+      // Token expired or invalid - skip redirect if already on login page
       localStorage.removeItem('token');
       window.location.href = '/login';
     }
