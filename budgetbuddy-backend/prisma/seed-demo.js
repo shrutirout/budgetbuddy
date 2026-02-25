@@ -99,7 +99,7 @@ async function main() {
 
   const expenses = [
     // ========== AUGUST 2024 ==========
-    // Housing
+    // Bills
     { month: 8, date: 1, amount: 15000, category: 'Bills', description: 'PG Rent - August' },
     { month: 8, date: 5, amount: 1200, category: 'Bills', description: 'Electricity Bill' },
     { month: 8, date: 10, amount: 300, category: 'Bills', description: 'Room Cleaning Service' },
@@ -125,7 +125,7 @@ async function main() {
     { month: 8, date: 22, amount: 1200, category: 'Food', description: 'Weekend Outing - Toit Brewpub' },
     { month: 8, date: 30, amount: 680, category: 'Food', description: 'Dinner with Friends - Truffles' },
 
-    // Transportation
+    // Transport
     { month: 8, date: 2, amount: 800, category: 'Transport', description: 'Namma Metro Card Recharge' },
     { month: 8, date: 6, amount: 180, category: 'Transport', description: 'Auto to Office' },
     { month: 8, date: 11, amount: 240, category: 'Transport', description: 'Uber - Late Night Return' },
@@ -139,7 +139,7 @@ async function main() {
     { month: 8, date: 20, amount: 1500, category: 'Shopping', description: 'Casual Wear - H&M' },
     { month: 8, date: 26, amount: 850, category: 'Shopping', description: 'Shoes - Bata' },
 
-    // Personal Care
+    // Healthcare
     { month: 8, date: 7, amount: 1200, category: 'Healthcare', description: 'Gym Membership - August' },
     { month: 8, date: 21, amount: 900, category: 'Healthcare', description: 'Salon - Haircut & Facial' },
     { month: 8, date: 29, amount: 450, category: 'Healthcare', description: 'Medicines - Apollo Pharmacy' },
@@ -155,12 +155,12 @@ async function main() {
     { month: 8, date: 19, amount: 350, category: 'Healthcare', description: 'Toiletries - Blinkit' },
     { month: 8, date: 26, amount: 280, category: 'Food', description: 'Midnight Snacks - Zepto' },
 
-    // Miscellaneous
+    // Other
     { month: 8, date: 15, amount: 1500, category: 'Other', description: 'Raksha Bandhan - Gift for Brother' },
     { month: 8, date: 31, amount: 500, category: 'Other', description: 'Phone Recharge - Airtel' },
 
     // ========== SEPTEMBER 2024 ==========
-    // Housing
+    // Bills
     { month: 9, date: 1, amount: 15000, category: 'Bills', description: 'PG Rent - September' },
     { month: 9, date: 4, amount: 1350, category: 'Bills', description: 'Electricity Bill' },
     { month: 9, date: 15, amount: 500, category: 'Bills', description: 'Gas Cylinder Refill' },
@@ -186,7 +186,7 @@ async function main() {
     { month: 9, date: 21, amount: 1400, category: 'Food', description: 'Colleague Farewell - Brewsky' },
     { month: 9, date: 27, amount: 750, category: 'Food', description: 'Date Night - Ebony Restaurant' },
 
-    // Transportation
+    // Transport
     { month: 9, date: 3, amount: 800, category: 'Transport', description: 'Metro Card Top-up' },
     { month: 9, date: 10, amount: 420, category: 'Transport', description: 'Uber - Airport Drop for Friend' },
     { month: 9, date: 16, amount: 180, category: 'Transport', description: 'Auto Rickshaw' },
@@ -199,7 +199,7 @@ async function main() {
     { month: 9, date: 19, amount: 1200, category: 'Shopping', description: 'Perfume & Cosmetics - Shoppers Stop' },
     { month: 9, date: 25, amount: 800, category: 'Shopping', description: 'Books - Blossoms Book House' },
 
-    // Personal Care
+    // Healthcare
     { month: 9, date: 7, amount: 1200, category: 'Healthcare', description: 'Gym Membership - September' },
     { month: 9, date: 17, amount: 1100, category: 'Healthcare', description: 'Salon - Hair Spa & Manicure' },
     { month: 9, date: 26, amount: 350, category: 'Healthcare', description: 'First Aid - Pharmacy' },
@@ -215,12 +215,12 @@ async function main() {
     { month: 9, date: 18, amount: 380, category: 'Healthcare', description: 'Skincare Products - Instamart' },
     { month: 9, date: 24, amount: 190, category: 'Food', description: 'Breakfast Items - Zepto' },
 
-    // Miscellaneous
+    // Other
     { month: 9, date: 13, amount: 2000, category: 'Other', description: 'Ganesh Chaturthi - Donation & Prasad' },
     { month: 9, date: 30, amount: 500, category: 'Other', description: 'Mobile Recharge' },
 
     // ========== OCTOBER 2024 ==========
-    // Housing
+    // Bills
     { month: 10, date: 1, amount: 15000, category: 'Bills', description: 'PG Rent - October' },
     { month: 10, date: 6, amount: 1180, category: 'Bills', description: 'Electricity Bill' },
     { month: 10, date: 20, amount: 400, category: 'Bills', description: 'Room Deep Cleaning' },
@@ -245,7 +245,7 @@ async function main() {
     { month: 10, date: 19, amount: 1600, category: 'Food', description: 'Friend\'s Birthday - Hard Rock Cafe' },
     { month: 10, date: 27, amount: 1100, category: 'Food', description: 'Diwali Dinner - Karavalli' },
 
-    // Transportation
+    // Transport
     { month: 10, date: 5, amount: 800, category: 'Transport', description: 'Metro Card Recharge' },
     { month: 10, date: 11, amount: 350, category: 'Transport', description: 'Uber - Long Distance' },
     { month: 10, date: 18, amount: 220, category: 'Transport', description: 'Ola - Shopping Trip' },
@@ -257,7 +257,7 @@ async function main() {
     { month: 10, date: 22, amount: 2800, category: 'Shopping', description: 'Electronics - iPad Accessories' },
     { month: 10, date: 28, amount: 1800, category: 'Shopping', description: 'Jewelry - Tanishq' },
 
-    // Personal Care
+    // Healthcare
     { month: 10, date: 7, amount: 1200, category: 'Healthcare', description: 'Gym Membership - October' },
     { month: 10, date: 13, amount: 1500, category: 'Healthcare', description: 'Festive Makeover - Salon' },
     { month: 10, date: 24, amount: 400, category: 'Healthcare', description: 'Skincare Products' },
@@ -268,7 +268,7 @@ async function main() {
     { month: 10, date: 5, amount: 199, category: 'Entertainment', description: 'Netflix Subscription' },
     { month: 10, date: 5, amount: 149, category: 'Entertainment', description: 'Spotify Premium' },
 
-    // Travel - Diwali Trip Home
+    // Transport - Diwali Trip Home
     { month: 10, date: 29, amount: 4500, category: 'Transport', description: 'Flight Tickets - Bangalore to Delhi (Diwali)' },
     { month: 10, date: 29, amount: 800, category: 'Transport', description: 'Airport Cab' },
 
@@ -277,13 +277,13 @@ async function main() {
     { month: 10, date: 17, amount: 420, category: 'Healthcare', description: 'Festive Prep - Instamart' },
     { month: 10, date: 26, amount: 230, category: 'Food', description: 'Late Night Essentials - Zepto' },
 
-    // Miscellaneous
+    // Other
     { month: 10, date: 12, amount: 3000, category: 'Other', description: 'Diwali - Gifts & Donations' },
     { month: 10, date: 31, amount: 1000, category: 'Other', description: 'Diwali Firecrackers' },
     { month: 10, date: 30, amount: 500, category: 'Other', description: 'Phone Recharge' },
 
     // ========== NOVEMBER 2024 ==========
-    // Housing
+    // Bills
     { month: 11, date: 1, amount: 15000, category: 'Bills', description: 'PG Rent - November' },
     { month: 11, date: 5, amount: 1280, category: 'Bills', description: 'Electricity Bill' },
 
@@ -306,7 +306,7 @@ async function main() {
     { month: 11, date: 24, amount: 950, category: 'Food', description: 'Brunch - The Fatty Bao' },
     { month: 11, date: 30, amount: 680, category: 'Food', description: 'Dinner - Meghana Foods' },
 
-    // Transportation
+    // Transport
     { month: 11, date: 2, amount: 800, category: 'Transport', description: 'Metro Card Top-up' },
     { month: 11, date: 10, amount: 280, category: 'Transport', description: 'Uber - Weekend Trip' },
     { month: 11, date: 19, amount: 200, category: 'Transport', description: 'Auto - Market' },
@@ -318,7 +318,7 @@ async function main() {
     { month: 11, date: 22, amount: 1200, category: 'Shopping', description: 'Accessories - Lifestyle' },
     { month: 11, date: 29, amount: 3500, category: 'Shopping', description: 'Black Friday Sale - Amazon (Gadgets)' },
 
-    // Personal Care
+    // Healthcare
     { month: 11, date: 7, amount: 1200, category: 'Healthcare', description: 'Gym Membership - November' },
     { month: 11, date: 14, amount: 950, category: 'Healthcare', description: 'Salon - Hair Treatment' },
     { month: 11, date: 27, amount: 380, category: 'Healthcare', description: 'Medicines - Pharmacy' },
@@ -331,15 +331,15 @@ async function main() {
 
     // Daily Essentials
     { month: 11, date: 13, amount: 260, category: 'Food', description: 'Emergency Items - Blinkit' },
-    { month: 11, date: 20, amount: 340, category: 'Healthcare', description: 'Personal Care - Instamart' },
+    { month: 11, date: 20, amount: 340, category: 'Healthcare', description: 'Healthcare Essentials - Instamart' },
     { month: 11, date: 27, amount: 210, category: 'Food', description: 'Snacks - Zepto' },
 
-    // Miscellaneous
+    // Other
     { month: 11, date: 21, amount: 1200, category: 'Other', description: 'Friend\'s Wedding Gift' },
     { month: 11, date: 30, amount: 500, category: 'Other', description: 'Mobile Recharge' },
 
     // ========== DECEMBER 2024 ==========
-    // Housing
+    // Bills
     { month: 12, date: 1, amount: 15000, category: 'Bills', description: 'PG Rent - December' },
     { month: 12, date: 6, amount: 1400, category: 'Bills', description: 'Electricity Bill (Winter - Heater)' },
     { month: 12, date: 15, amount: 500, category: 'Bills', description: 'Gas Refill' },
@@ -363,7 +363,7 @@ async function main() {
     { month: 12, date: 24, amount: 2200, category: 'Food', description: 'Christmas Dinner - The 13th Floor' },
     { month: 12, date: 31, amount: 3500, category: 'Food', description: 'New Year\'s Eve - Skyye Lounge' },
 
-    // Transportation
+    // Transport
     { month: 12, date: 3, amount: 800, category: 'Transport', description: 'Metro Card Recharge' },
     { month: 12, date: 13, amount: 420, category: 'Transport', description: 'Uber - Christmas Shopping' },
     { month: 12, date: 20, amount: 280, category: 'Transport', description: 'Ola - Mall Trip' },
@@ -376,7 +376,7 @@ async function main() {
     { month: 12, date: 23, amount: 2500, category: 'Shopping', description: 'Party Outfit - AND' },
     { month: 12, date: 26, amount: 1800, category: 'Shopping', description: 'Boxing Day Sale - Flipkart' },
 
-    // Personal Care
+    // Healthcare
     { month: 12, date: 7, amount: 1200, category: 'Healthcare', description: 'Gym Membership - December' },
     { month: 12, date: 19, amount: 1800, category: 'Healthcare', description: 'Pre-New Year Salon - Full Package' },
     { month: 12, date: 29, amount: 420, category: 'Healthcare', description: 'Skincare - Nykaa' },
@@ -389,7 +389,7 @@ async function main() {
     { month: 12, date: 5, amount: 149, category: 'Entertainment', description: 'Spotify Premium' },
     { month: 12, date: 20, amount: 299, category: 'Entertainment', description: 'Amazon Prime - Annual Renewal' },
 
-    // Travel - Year-end Trip
+    // Transport - Year-end Trip
     { month: 12, date: 27, amount: 8500, category: 'Transport', description: 'Goa Trip - Flight & Hotel Booking' },
     { month: 12, date: 28, amount: 3200, category: 'Transport', description: 'Goa - Activities & Sightseeing' },
     { month: 12, date: 29, amount: 2500, category: 'Transport', description: 'Goa - Beach Party & Dinner' },
@@ -399,7 +399,7 @@ async function main() {
     { month: 12, date: 17, amount: 380, category: 'Healthcare', description: 'Winter Care Products - Instamart' },
     { month: 12, date: 26, amount: 240, category: 'Food', description: 'Post-Christmas Essentials - Zepto' },
 
-    // Miscellaneous
+    // Other
     { month: 12, date: 15, amount: 2000, category: 'Other', description: 'Charity Donation - Year End' },
     { month: 12, date: 25, amount: 1500, category: 'Other', description: 'Christmas Gifts for PG Staff' },
     { month: 12, date: 30, amount: 800, category: 'Other', description: 'Phone Recharge - New Year Special Pack' },
@@ -407,7 +407,7 @@ async function main() {
     // ========== JANUARY 2026 ==========
     // Recovery month - cutting back after December's heavy spending
 
-    // Housing
+    // Bills
     { year: 2026, month: 1, date: 1, amount: 15000, category: 'Bills', description: 'PG Rent - January' },
     { year: 2026, month: 1, date: 6, amount: 1100, category: 'Bills', description: 'Electricity Bill' },
     { year: 2026, month: 1, date: 14, amount: 300, category: 'Bills', description: 'Room Cleaning Service' },
@@ -428,7 +428,7 @@ async function main() {
     { year: 2026, month: 1, date: 11, amount: 700, category: 'Food', description: 'Brunch - Third Wave Coffee' },
     { year: 2026, month: 1, date: 25, amount: 1050, category: 'Food', description: 'Weekend Dinner - Meghana Foods' },
 
-    // Transportation
+    // Transport
     { year: 2026, month: 1, date: 3, amount: 800, category: 'Transport', description: 'Metro Card Recharge' },
     { year: 2026, month: 1, date: 9, amount: 180, category: 'Transport', description: 'Auto - Office' },
     { year: 2026, month: 1, date: 16, amount: 240, category: 'Transport', description: 'Uber - Evening Return' },
@@ -437,7 +437,7 @@ async function main() {
     // Shopping (minimal - New Year stationery/planner)
     { year: 2026, month: 1, date: 2, amount: 1200, category: 'Shopping', description: 'New Year Planner & Stationery - Amazon' },
 
-    // Personal Care
+    // Healthcare
     { year: 2026, month: 1, date: 8, amount: 1200, category: 'Healthcare', description: 'Gym Membership - January' },
     { year: 2026, month: 1, date: 20, amount: 850, category: 'Healthcare', description: 'Salon - Basic Haircut' },
     { year: 2026, month: 1, date: 29, amount: 320, category: 'Healthcare', description: 'Medicines - Pharmacy' },
@@ -447,13 +447,13 @@ async function main() {
     { year: 2026, month: 1, date: 5, amount: 149, category: 'Entertainment', description: 'Spotify Premium' },
     { year: 2026, month: 1, date: 18, amount: 380, category: 'Entertainment', description: 'Movie - PVR (New Release)' },
 
-    // Miscellaneous
+    // Other
     { year: 2026, month: 1, date: 31, amount: 500, category: 'Other', description: 'Mobile Recharge' },
 
     // ========== FEBRUARY 2026 ==========
     // Valentine's month, slightly higher food & shopping
 
-    // Housing
+    // Bills
     { year: 2026, month: 2, date: 1, amount: 15000, category: 'Bills', description: 'PG Rent - February' },
     { year: 2026, month: 2, date: 5, amount: 1050, category: 'Bills', description: 'Electricity Bill' },
     { year: 2026, month: 2, date: 16, amount: 500, category: 'Bills', description: 'Gas Cylinder Refill' },
@@ -475,7 +475,7 @@ async function main() {
     { year: 2026, month: 2, date: 8, amount: 750, category: 'Food', description: 'Weekend Brunch - Social' },
     { year: 2026, month: 2, date: 22, amount: 680, category: 'Food', description: 'Coffee & Catch-up - Third Wave' },
 
-    // Transportation
+    // Transport
     { year: 2026, month: 2, date: 4, amount: 800, category: 'Transport', description: 'Metro Card Top-up' },
     { year: 2026, month: 2, date: 12, amount: 180, category: 'Transport', description: 'Auto - Market Run' },
     { year: 2026, month: 2, date: 14, amount: 260, category: 'Transport', description: 'Uber - Valentine Evening' },
@@ -485,7 +485,7 @@ async function main() {
     { year: 2026, month: 2, date: 11, amount: 1800, category: 'Shopping', description: "Valentine's Gift - Myntra" },
     { year: 2026, month: 2, date: 20, amount: 2200, category: 'Shopping', description: 'Casual Wear - Sale Picks (H&M)' },
 
-    // Personal Care
+    // Healthcare
     { year: 2026, month: 2, date: 7, amount: 1200, category: 'Healthcare', description: 'Gym Membership - February' },
     { year: 2026, month: 2, date: 13, amount: 1100, category: 'Healthcare', description: 'Salon - Pre-Valentine Makeover' },
     { year: 2026, month: 2, date: 25, amount: 480, category: 'Healthcare', description: 'Skincare - Nykaa' },
@@ -495,13 +495,13 @@ async function main() {
     { year: 2026, month: 2, date: 5, amount: 149, category: 'Entertainment', description: 'Spotify Premium' },
     { year: 2026, month: 2, date: 21, amount: 500, category: 'Entertainment', description: "Movie - PVR (Valentine's Special)" },
 
-    // Miscellaneous
+    // Other
     { year: 2026, month: 2, date: 28, amount: 500, category: 'Other', description: 'Mobile Recharge' },
 
     // ========== MARCH 2026 ==========
     // Holi festival + financial year end + Coorg weekend trip
 
-    // Housing
+    // Bills
     { year: 2026, month: 3, date: 1, amount: 15000, category: 'Bills', description: 'PG Rent - March' },
     { year: 2026, month: 3, date: 7, amount: 1200, category: 'Bills', description: 'Electricity Bill' },
     { year: 2026, month: 3, date: 20, amount: 500, category: 'Bills', description: 'PG Maintenance' },
@@ -525,7 +525,7 @@ async function main() {
     { year: 2026, month: 3, date: 7, amount: 800, category: 'Food', description: 'Weekend Brunch - Cafe Thulp' },
     { year: 2026, month: 3, date: 27, amount: 920, category: 'Food', description: 'Year-end Dinner - Truffles' },
 
-    // Transportation
+    // Transport
     { year: 2026, month: 3, date: 3, amount: 800, category: 'Transport', description: 'Metro Card Recharge' },
     { year: 2026, month: 3, date: 10, amount: 350, category: 'Transport', description: 'Uber - Holi Event' },
     { year: 2026, month: 3, date: 21, amount: 220, category: 'Transport', description: 'Auto - Multiple Stops' },
@@ -535,7 +535,7 @@ async function main() {
     { year: 2026, month: 3, date: 15, amount: 2800, category: 'Shopping', description: 'New FY Wardrobe Refresh - Westside' },
     { year: 2026, month: 3, date: 22, amount: 650, category: 'Shopping', description: 'Finance & Career Books - Blossoms' },
 
-    // Personal Care
+    // Healthcare
     { year: 2026, month: 3, date: 8, amount: 1200, category: 'Healthcare', description: 'Gym Membership - March' },
     { year: 2026, month: 3, date: 18, amount: 1050, category: 'Healthcare', description: 'Salon - Hair Treatment' },
 
@@ -544,20 +544,20 @@ async function main() {
     { year: 2026, month: 3, date: 5, amount: 149, category: 'Entertainment', description: 'Spotify Premium' },
     { year: 2026, month: 3, date: 14, amount: 800, category: 'Entertainment', description: 'Holi Party Entry - Club' },
 
-    // Travel - Coorg weekend trip
+    // Transport - Coorg weekend trip
     { year: 2026, month: 3, date: 22, amount: 3200, category: 'Transport', description: 'Coorg Trip - Train & Bus Tickets' },
     { year: 2026, month: 3, date: 22, amount: 2300, category: 'Transport', description: 'Coorg - Homestay (2 nights)' },
     { year: 2026, month: 3, date: 23, amount: 1800, category: 'Transport', description: 'Coorg - Coffee Estates & Activities' },
     { year: 2026, month: 3, date: 24, amount: 600, category: 'Transport', description: 'Return Journey - Cab' },
 
-    // Miscellaneous (year-end tax saving)
+    // Other (year-end tax saving)
     { year: 2026, month: 3, date: 25, amount: 3500, category: 'Other', description: 'LIC Premium - Tax Saving Investment' },
     { year: 2026, month: 3, date: 31, amount: 500, category: 'Other', description: 'Mobile Recharge' },
 
     // ========== APRIL 2026 ==========
     // New financial year, salary hike to ₹88K, landlord revises rent to ₹16K
 
-    // Housing (rent revised upward)
+    // Bills (rent revised upward)
     { year: 2026, month: 4, date: 1, amount: 16000, category: 'Bills', description: 'PG Rent - April (Revised)' },
     { year: 2026, month: 4, date: 8, amount: 1350, category: 'Bills', description: 'Electricity Bill (Summer starting)' },
     { year: 2026, month: 4, date: 18, amount: 600, category: 'Bills', description: 'Room Deep Cleaning' },
@@ -579,7 +579,7 @@ async function main() {
     { year: 2026, month: 4, date: 1, amount: 900, category: 'Food', description: 'Ugadi Lunch - Karavalli' },
     { year: 2026, month: 4, date: 19, amount: 680, category: 'Food', description: 'Weekend Cafe - Third Wave Coffee' },
 
-    // Transportation
+    // Transport
     { year: 2026, month: 4, date: 3, amount: 800, category: 'Transport', description: 'Metro Card Top-up' },
     { year: 2026, month: 4, date: 9, amount: 180, category: 'Transport', description: 'Auto - Office' },
     { year: 2026, month: 4, date: 16, amount: 350, category: 'Transport', description: 'Uber - Late Night Office Drop' },
@@ -589,7 +589,7 @@ async function main() {
     { year: 2026, month: 4, date: 10, amount: 3500, category: 'Shopping', description: 'Appraisal Treat - New Clothes (Zara)' },
     { year: 2026, month: 4, date: 22, amount: 1200, category: 'Shopping', description: 'Accessories - Lifestyle' },
 
-    // Personal Care
+    // Healthcare
     { year: 2026, month: 4, date: 7, amount: 1200, category: 'Healthcare', description: 'Gym Membership - April' },
     { year: 2026, month: 4, date: 15, amount: 1050, category: 'Healthcare', description: 'Salon - Regular Session' },
     { year: 2026, month: 4, date: 28, amount: 450, category: 'Healthcare', description: 'Summer Vitamins & Supplements' },
@@ -599,13 +599,13 @@ async function main() {
     { year: 2026, month: 4, date: 5, amount: 149, category: 'Entertainment', description: 'Spotify Premium' },
     { year: 2026, month: 4, date: 25, amount: 420, category: 'Entertainment', description: 'Movie - PVR' },
 
-    // Miscellaneous
+    // Other
     { year: 2026, month: 4, date: 30, amount: 500, category: 'Other', description: 'Mobile Recharge' },
 
     // ========== MAY 2026 ==========
     // Peak Bangalore summer - AC bills spike, advance booking for Manali trip in June
 
-    // Housing (electricity spikes with AC usage)
+    // Bills (electricity spikes with AC usage)
     { year: 2026, month: 5, date: 1, amount: 16000, category: 'Bills', description: 'PG Rent - May' },
     { year: 2026, month: 5, date: 8, amount: 1850, category: 'Bills', description: 'Electricity Bill (AC running)' },
     { year: 2026, month: 5, date: 22, amount: 300, category: 'Bills', description: 'Water Bill' },
@@ -630,7 +630,7 @@ async function main() {
     { year: 2026, month: 5, date: 17, amount: 1200, category: 'Food', description: 'Team Lunch - Absolute Barbecue' },
     { year: 2026, month: 5, date: 31, amount: 680, category: 'Food', description: 'Month-end Dinner - Meghana Foods' },
 
-    // Transportation (more Uber/Ola - avoiding autos in 38°C heat)
+    // Transport (more Uber/Ola - avoiding autos in 38°C heat)
     { year: 2026, month: 5, date: 4, amount: 800, category: 'Transport', description: 'Metro Card Recharge' },
     { year: 2026, month: 5, date: 7, amount: 580, category: 'Transport', description: 'Uber - Multiple Rides' },
     { year: 2026, month: 5, date: 14, amount: 420, category: 'Transport', description: 'Ola - Weekend Outings' },
@@ -641,7 +641,7 @@ async function main() {
     { year: 2026, month: 5, date: 6, amount: 2800, category: 'Shopping', description: 'Summer Wardrobe - Uniqlo' },
     { year: 2026, month: 5, date: 18, amount: 680, category: 'Shopping', description: 'Sunscreen & Summer Essentials - Nykaa' },
 
-    // Personal Care
+    // Healthcare
     { year: 2026, month: 5, date: 8, amount: 1200, category: 'Healthcare', description: 'Gym Membership - May' },
     { year: 2026, month: 5, date: 16, amount: 950, category: 'Healthcare', description: 'Salon - Quick Trim' },
     { year: 2026, month: 5, date: 25, amount: 780, category: 'Healthcare', description: 'Summer Skincare Kit - Minimalist' },
@@ -650,11 +650,11 @@ async function main() {
     { year: 2026, month: 5, date: 5, amount: 199, category: 'Entertainment', description: 'Netflix Subscription' },
     { year: 2026, month: 5, date: 5, amount: 149, category: 'Entertainment', description: 'Spotify Premium' },
 
-    // Travel - Advance booking for June Manali trip (beat the summer price surge)
+    // Transport - Advance booking for June Manali trip (beat the summer price surge)
     { year: 2026, month: 5, date: 20, amount: 8500, category: 'Transport', description: 'Manali Trip - Flight Advance Booking (June)' },
     { year: 2026, month: 5, date: 21, amount: 4500, category: 'Transport', description: 'Manali - Hotel Pre-booking (June)' },
 
-    // Miscellaneous
+    // Other
     { year: 2026, month: 5, date: 31, amount: 500, category: 'Other', description: 'Mobile Recharge' },
   ];
 
