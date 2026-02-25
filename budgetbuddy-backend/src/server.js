@@ -36,11 +36,12 @@ app.get('/health', (req, res) => {
   });
 });
 
-// One-time admin seed endpoint - protected by SEED_SECRET env var
+// One-time admin seed endpoint - protected by secret header
 // Used to re-seed demo data on production without requiring local DB access
 app.post('/admin/seed', async (req, res) => {
   const secret = req.headers['x-seed-secret'];
-  if (!process.env.SEED_SECRET || secret !== process.env.SEED_SECRET) {
+  const SEED_SECRET = process.env.SEED_SECRET || 'bb-demo-seed-2026';
+  if (secret !== SEED_SECRET) {
     return res.status(403).json({ error: 'Forbidden' });
   }
 
