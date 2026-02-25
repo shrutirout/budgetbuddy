@@ -36,35 +36,6 @@ app.get('/health', (req, res) => {
   });
 });
 
-// One-time admin seed endpoint - protected by secret header
-// Used to re-seed demo data on production without requiring local DB access
-app.post('/admin/seed', async (req, res) => {
-  const secret = req.headers['x-seed-secret'];
-  const SEED_SECRET = process.env.SEED_SECRET || 'bb-demo-seed-2026';
-  if (secret !== SEED_SECRET) {
-    return res.status(403).json({ error: 'Forbidden' });
-  }
-
-  res.json({ message: 'Seeding started - check server logs for progress' });
-
-  // Run seed asynchronously after responding
-  try {
-    const { execFile } = require('child_process');
-    const path = require('path');
-    const seedPath = path.join(__dirname, '..', 'prisma', 'seed-demo.js');
-    execFile('node', [seedPath], { env: process.env, cwd: path.join(__dirname, '..') }, (err, stdout, stderr) => {
-      if (err) {
-        console.error('Seed script error:', err.message);
-        console.error(stderr);
-      } else {
-        console.log('Seed completed:\n', stdout);
-      }
-    });
-  } catch (e) {
-    console.error('Failed to launch seed script:', e.message);
-  }
-});
-
 // Root endpoint
 app.get('/', (req, res) => {
   res.json({
