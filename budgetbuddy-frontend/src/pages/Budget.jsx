@@ -419,14 +419,13 @@ function Budget() {
                     className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary"
                   >
                     <option value="">Select a category</option>
-                    <option value="Housing">Housing</option>
                     <option value="Food">Food</option>
-                    <option value="Transportation">Transportation</option>
-                    <option value="Shopping">Shopping</option>
+                    <option value="Transport">Transport</option>
                     <option value="Entertainment">Entertainment</option>
-                    <option value="Personal Care">Personal Care</option>
-                    <option value="Travel">Travel</option>
-                    <option value="Miscellaneous">Miscellaneous</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
 

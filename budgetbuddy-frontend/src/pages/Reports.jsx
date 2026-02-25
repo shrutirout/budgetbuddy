@@ -267,32 +267,14 @@ const Reports = () => {
       'Other': '#6B7280'
     };
 
-    const categoryMapping = {
-      'Transportation': 'Transport',
-      'Housing': 'Bills',
-      'Travel': 'Entertainment',
-      'Personal Care': 'Healthcare',
-      'Miscellaneous': 'Other'
-    };
-
-    const consolidatedCategories = {};
-    Object.entries(categoryTrends.categories).forEach(([category, values]) => {
-      const officialCategory = categoryMapping[category] || category;
-      if (!consolidatedCategories[officialCategory]) {
-        consolidatedCategories[officialCategory] = [...values];
-      } else {
-        consolidatedCategories[officialCategory] = consolidatedCategories[officialCategory].map((val, idx) => val + (values[idx] || 0));
-      }
-    });
-
     // Create datasets only for official categories
     const datasets = Object.keys(categoryColors).map(category => {
-      if (!consolidatedCategories[category]) return null;
+      if (!categoryTrends.categories[category]) return null;
 
       const color = categoryColors[category];
       return {
         label: category,
-        data: consolidatedCategories[category],
+        data: categoryTrends.categories[category],
         borderColor: color,
         backgroundColor: `${color}20`,
         tension: 0.3,
