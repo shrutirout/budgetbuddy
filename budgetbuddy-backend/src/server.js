@@ -55,21 +55,6 @@ app.get('/', (req, res) => {
   });
 });
 
-// Temporary seed endpoint - REMOVE AFTER USE
-app.post('/api/seed-demo', async (req, res) => {
-  const secret = req.headers['x-seed-secret'];
-  if (secret !== (process.env.SEED_SECRET || 'budgetbuddy-seed-2025')) {
-    return res.status(403).json({ error: 'Forbidden' });
-  }
-  try {
-    const { execSync } = require('child_process');
-    execSync('npm run seed', { cwd: process.cwd(), stdio: 'pipe' });
-    res.json({ success: true, message: 'Demo data seeded successfully' });
-  } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
-  }
-});
-
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/expenses', expenseRoutes);
