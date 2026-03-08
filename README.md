@@ -1,1234 +1,188 @@
-# 💰 BudgetBuddy
+# BudgetBuddy
 
-A full-stack personal finance management application powered by AI. Track expenses, manage budgets, analyze spending patterns, and get personalized financial advice.
-
----
-
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [Technology Stack](#technology-stack)
-- [Architecture](#architecture)
-- [Getting Started](#getting-started)
-- [Features Documentation](#features-documentation)
-- [API Documentation](#api-documentation)
-- [Database Schema](#database-schema)
-- [Environment Variables](#environment-variables)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
+A full-stack personal finance management app built with React and Node.js. It helps you track expenses and income, set monthly budgets, visualize spending patterns, and get AI-powered financial advice through a conversational chatbot.
 
 ---
 
-## 🎯 Overview
+## Overview
 
-**BudgetBuddy** is a modern personal finance management system that helps users take control of their money. Built with React and Node.js, it features AI-powered expense categorization, intelligent budget monitoring, comprehensive analytics, and a financial advisor chatbot powered by Google Gemini AI.
+BudgetBuddy is designed to make personal finance tracking practical and intelligent. You can log transactions, categorize them automatically using Gemini AI, set budget limits per category, and see how your spending compares to those limits in real time. The app also handles recurring transactions on a schedule, generates Excel reports, and lets you ask a financial chatbot questions about your own data.
 
-### Why BudgetBuddy?
-
-- **🤖 AI-Powered**: Automatic expense categorization using Google Gemini
-- **📊 Smart Analytics**: Visual insights into spending patterns and trends
-- **💡 Intelligent Advice**: Context-aware financial advisor chatbot
-- **⚡ Real-time Monitoring**: Budget alerts and spending notifications
-- **📱 Responsive Design**: Works seamlessly on desktop and mobile
-- **🌙 Dark Mode**: Easy on the eyes with system-aware theme switching
-- **🔒 Secure**: JWT authentication with password hashing
+It is a complete full-stack application with a REST API backend, a PostgreSQL database managed through Prisma, and a React frontend with Chart.js visualizations.
 
 ---
 
-## ✨ Key Features
+## Tech Stack
 
-### 1. 💳 Expense Management
-- **CRUD Operations**: Create, read, update, and delete expense entries
-- **AI Categorization**: Automatic categorization of expenses using Google Gemini AI
-  - 7 predefined categories: Food, Transport, Entertainment, Shopping, Bills, Healthcare, Other
-  - Smart suggestions based on expense descriptions
-  - In-memory caching for performance (1000 item FIFO cache)
-- **Advanced Filtering**: Filter by category, date range, and custom criteria
-- **Excel Export**: Download expense reports in formatted Excel files
-- **Date Handling**: UTC-based timezone handling to prevent date shifts
+**Frontend:** React 18, React Router v6, Chart.js, Tailwind CSS, Axios
 
-### 2. 💰 Income Tracking
-- **Source-based Entries**: Track income from multiple sources (Salary, Freelance, Investment, etc.)
-- **Date Range Filtering**: View income for specific time periods
-- **Statistics**: Aggregate income data by source and time period
-- **Excel Export**: Generate professional income reports with green-themed styling
+**Backend:** Node.js, Express.js, PostgreSQL, Prisma ORM
 
-### 3. 📊 Budget Management
-- **Category Budgets**: Set monthly spending limits per category
-- **Smart Alerts**: Three-level alert system
-  - ✅ **Safe**: Below 80% of budget (green)
-  - ⚠️ **Warning**: 80-100% of budget (yellow)
-  - 🚨 **Danger**: Over 100% of budget (red)
-- **Real-time Monitoring**: Track spending against budgets in real-time
-- **Month-based Tracking**: View and compare budgets across different months
-- **Conflict Prevention**: Prevents duplicate budgets for the same category/month
+**AI:** Google Gemini 2.5 Flash Lite for expense categorization and the financial chatbot
 
-### 4. 📈 Financial Analytics
-Comprehensive visualization dashboard with Chart.js:
+**Auth:** JWT-based authentication with bcrypt password hashing
 
-- **Expense Trends**: Line charts showing spending patterns over time
-  - Daily trends for current month
-  - Monthly trends for 3/6/12 month periods
-- **Category Breakdown**: Doughnut charts with percentage breakdowns
-- **Income vs Expenses**: Comparative bar charts for financial health
-- **Budget Performance**: Actual spending vs budget limits
-- **Savings Trends**: Cumulative savings over time with area charts
-- **Multi-Category Trends**: Track multiple category spending patterns simultaneously
-
-### 5. 🤖 AI Financial Advisor
-Intelligent chatbot powered by Google Gemini:
-
-- **Context-Aware Responses**: Uses complete financial history for personalized advice
-- **Conversation History**: Persistent chat history with pagination
-- **Quick Actions**: Pre-defined prompts for common queries
-  - "How much am I spending on food?"
-  - "Am I on track with my budget?"
-  - "Where should I cut costs?"
-  - "Analyze my spending patterns"
-- **Financial Context**: Includes income, expenses, budgets, and spending patterns
-- **Smart Recommendations**: AI-generated insights based on your financial data
-
-### 6. 🔄 Recurring Transactions
-Template-based system for automated transactions:
-
-- **Flexible Frequencies**: Daily, Weekly, Monthly, Yearly
-- **Edge Case Handling**:
-  - Leap year support
-  - Month-end date handling (e.g., Jan 31 → Feb 28/29)
-- **Automatic Generation**: Cron-based processing for due transactions
-- **Active/Inactive Status**: Enable or disable recurring templates
-- **End Date Support**: Auto-deactivation when recurring period ends
-
-### 7. 📄 Export & Reporting
-Professional report generation:
-
-- **Excel Export**: Multi-sheet workbooks with formatting
-  - Summary sheet with totals and statistics
-  - Detailed expenses sheet with color-coded categories
-  - Income breakdown with source analysis
-  - Budget performance tracking
-- **CSV Export**: Simple CSV files for data portability
-- **Date Filtering**: Export specific time periods
-- **Auto-formatting**: Professional styling with headers, colors, and formulas
-
-### 8. 🎨 User Experience
-- **Dark Mode**: System-aware theme switching with localStorage persistence
-- **Responsive Design**: Mobile-first design with Tailwind CSS
-- **Loading States**: Smooth loading indicators for async operations
-- **Error Handling**: User-friendly error messages
-- **Form Validation**: Client and server-side validation
-- **Optimistic Updates**: Instant UI feedback for user actions
-
-### 9. 🔐 Security
-- **JWT Authentication**: Secure token-based authentication
-- **Password Hashing**: bcrypt encryption for password storage
-- **Protected Routes**: Authentication middleware on all sensitive endpoints
-- **CORS Configuration**: Cross-origin resource sharing control
-- **Token Expiry**: Automatic session management
+**Other:** node-cron for recurring transaction scheduling, ExcelJS for report generation
 
 ---
 
-## 🛠️ Technology Stack
+## Features
 
-### Backend
-- **Runtime**: Node.js (v16+)
-- **Framework**: Express.js
-- **Database**: PostgreSQL with Prisma ORM
-- **Authentication**: JWT (jsonwebtoken) + bcrypt
-- **AI Integration**: Google Generative AI (Gemini 2.5 Flash Lite)
-- **Report Generation**: ExcelJS, json2csv
-- **Scheduling**: node-cron
-- **Middleware**: CORS, express.json()
+### Expense and Income Tracking
 
-### Frontend
-- **Framework**: React 18 with Vite
-- **Routing**: React Router v6
-- **HTTP Client**: Axios with interceptors
-- **Charts**: Chart.js + react-chartjs-2
-- **Styling**: Tailwind CSS
-- **State Management**: Context API (Auth, DarkMode)
-- **Form Handling**: Controlled components with validation
+Log expenses and income entries with amount, date, description, and category. When you type a description, Gemini AI automatically suggests a category from seven predefined options: Food, Transport, Entertainment, Shopping, Bills, Healthcare, and Other. Suggestions are cached in memory to avoid redundant API calls.
 
-### Development Tools
-- **Package Manager**: npm
-- **Environment Configuration**: dotenv
-- **Code Quality**: ESLint
-- **Version Control**: Git
-
----
-
-## 🏗️ Architecture
-
-### System Architecture
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        Frontend (React)                      │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐         │
-│  │  Dashboard  │  │  Expenses   │  │   Budget    │         │
-│  └─────────────┘  └─────────────┘  └─────────────┘         │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐         │
-│  │   Reports   │  │   Chatbot   │  │   Income    │         │
-│  └─────────────┘  └─────────────┘  └─────────────┘         │
-└────────────────────────┬────────────────────────────────────┘
-                         │ Axios (JWT Headers)
-                         ▼
-┌─────────────────────────────────────────────────────────────┐
-│                   Backend API (Express.js)                   │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │              Authentication Middleware               │   │
-│  └──────────────────────────────────────────────────────┘   │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐   │
-│  │  Auth    │  │ Expenses │  │ Budgets  │  │Analytics │   │
-│  │Controller│  │Controller│  │Controller│  │Controller│   │
-│  └──────────┘  └──────────┘  └──────────┘  └──────────┘   │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐   │
-│  │ Income   │  │ Chatbot  │  │Recurring │  │  Export  │   │
-│  │Controller│  │Controller│  │Controller│  │Controller│   │
-│  └──────────┘  └──────────┘  └──────────┘  └──────────┘   │
-└────────────────────────┬────────────────────────────────────┘
-                         │ Prisma ORM
-                         ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    PostgreSQL Database                       │
-│  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐       │
-│  │  Users  │  │Expenses │  │ Income  │  │ Budgets │       │
-│  └─────────┘  └─────────┘  └─────────┘  └─────────┘       │
-│  ┌─────────┐  ┌─────────┐  ┌─────────┐                     │
-│  │Recurring│  │Recurring│  │  Chat   │                     │
-│  │Expenses │  │ Income  │  │Messages │                     │
-│  └─────────┘  └─────────┘  └─────────┘                     │
-└─────────────────────────────────────────────────────────────┘
-
-External Services:
-┌──────────────────────┐
-│  Google Gemini API   │ ──→ AI Categorization & Financial Advice
-└──────────────────────┘
-```
-
-### Data Flow
-
-1. **Authentication Flow**:
-   - User signs up/logs in → Backend validates → JWT token generated → Token stored in localStorage → Axios interceptor adds token to all requests
-
-2. **Expense Creation Flow**:
-   - User enters expense → AI categorization (optional) → Backend validation → Database storage → UI update
-
-3. **Budget Alert Flow**:
-   - Expense created → Backend calculates spending → Compares with budget limit → Returns alert level → Frontend displays color-coded status
-
-4. **Analytics Flow**:
-   - User selects date range → Multiple parallel API calls → PostgreSQL aggregations → Chart.js visualization
-
-5. **Chatbot Flow**:
-   - User sends message → Backend fetches financial context → Gemini API call with context → Response stored in DB → UI displays chat
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-Before you begin, ensure you have the following installed:
-- Node.js (v16 or higher)
-- PostgreSQL (v12 or higher)
-- npm or yarn
-- Git
-- Google Gemini API Key ([Get one here](https://makersuite.google.com/app/apikey))
-
-### Installation
-
-#### 1. Clone the Repository
-
-```bash
-git clone https://github.com/yourusername/budgetbuddy.git
-cd budgetbuddy
-```
-
-#### 2. Backend Setup
-
-```bash
-# Navigate to backend directory
-cd budgetbuddy-backend
-
-# Install dependencies
-npm install
-
-# Create environment file
-cp .env.example .env
-
-# Edit .env with your configuration
-nano .env  # or use your preferred editor
-```
-
-**Configure your `.env` file**:
-```env
-DATABASE_URL="postgresql://user:password@localhost:5432/budgetbuddy"
-JWT_SECRET="your-super-secret-jwt-key-here"
-GEMINI_API_KEY="your-gemini-api-key-here"
-PORT=5000
-NODE_ENV=development
-```
-
-```bash
-# Run database migrations
-npx prisma migrate dev
-
-# (Optional) Seed database with sample data
-npx prisma db seed
-
-# Start backend server
-npm start
-```
-
-The backend server will start on `http://localhost:5000`
-
-#### 3. Frontend Setup
-
-Open a new terminal window:
-
-```bash
-# Navigate to frontend directory
-cd budgetbuddy-frontend
-
-# Install dependencies
-npm install
-
-# Create environment file
-cp .env.example .env
-
-# Edit .env
-nano .env
-```
-
-**Configure your frontend `.env` file**:
-```env
-VITE_API_URL=http://localhost:5000/api
-```
-
-```bash
-# Start development server
-npm run dev
-```
-
-The frontend will start on `http://localhost:5173`
-
-#### 4. Database Setup
-
-Create PostgreSQL database:
-
-```sql
--- Connect to PostgreSQL
-psql -U postgres
-
--- Create database
-CREATE DATABASE budgetbuddy;
-
--- Verify database
-\l
-```
-
-Update `DATABASE_URL` in backend `.env` with your database credentials.
-
-### Quick Start Commands
-
-```bash
-# Backend
-cd budgetbuddy-backend
-npm install
-npx prisma migrate dev
-npm start
-
-# Frontend (in new terminal)
-cd budgetbuddy-frontend
-npm install
-npm run dev
-```
-
-### Accessing the Application
-
-1. Open your browser and navigate to `http://localhost:5173`
-2. Create a new account using the Sign Up page
-3. Log in with your credentials
-4. Start tracking your finances!
-
----
-
-## 📚 Features Documentation
-
-### Expense Management
-
-**Creating an Expense:**
-1. Navigate to Expenses page
-2. Click "+ Add Expense"
-3. Enter amount and description
-4. AI will automatically suggest a category (or select manually)
-5. Choose date and click "Create"
-
-**AI Categorization:**
-- Triggered automatically when you type 3+ characters in description
-- Debounced by 500ms to avoid excessive API calls
-- Cached results for repeated descriptions
-- 7 categories: Food, Transport, Entertainment, Shopping, Bills, Healthcare, Other
-
-**Filtering:**
-- By Category: Dropdown filter
-- By Date Range: Start and end date inputs
-- Results update automatically on filter change
-
-**Excel Export:**
-- Applies current filters to export
-- Professional formatting with colors and borders
-- Includes totals and statistics
-- File naming: `expenses_YYYY-MM-DD.xlsx`
+You can filter transactions by category and date range. Each list view supports pagination, and you can export filtered results as a formatted Excel file.
 
 ### Budget Management
 
-**Setting Budget Limits:**
-1. Navigate to Budget page
-2. Click "+ Set Budget Limit"
-3. Select category and month
-4. Enter limit amount
-5. System prevents duplicate category/month combinations
+Set monthly spending limits per expense category. The app calculates your actual spending for the month and compares it against your limit, returning one of three alert levels: safe (under 80%), warning (80 to 100%), and over budget (above 100%). The budget status page shows a real-time breakdown across all categories with progress indicators. The system prevents duplicate budgets for the same category and month combination.
 
-**Understanding Alerts:**
-- **Green (Safe)**: Spending < 80% of budget
-- **Yellow (Warning)**: Spending 80-100% of budget
-- **Red (Danger)**: Spending > 100% of budget
+### Analytics Dashboard
 
-**Budget Status Dashboard:**
-- Real-time spending calculation
-- Progress bars with color indicators
-- Remaining budget display
-- Month-based filtering
+A comprehensive Chart.js dashboard with multiple views:
 
-### Analytics & Reports
+- Expense trends as a line chart, showing daily breakdowns for the current month or monthly trends across 3, 6, or 12 months
+- Category breakdown as a doughnut chart with percentage splits
+- Income vs expenses as a bar chart for a side-by-side monthly comparison
+- Budget performance showing actual spending against set limits per category
+- Savings trends as a cumulative area chart over time
+- Multi-category trend lines for tracking several categories at once
 
-**Available Charts:**
+### AI Financial Chatbot
 
-1. **Expense Trends**
-   - Line chart showing spending over time
-   - Daily view for current month
-   - Monthly view for 3/6/12 months
+A Gemini-powered chatbot that answers questions based on your actual financial data. Before generating a response, the backend compiles your income, expenses, budget status, category-wise spending, and recent transaction patterns into a context payload sent to the API. This means answers are personalized to your data rather than generic.
 
-2. **Category Breakdown**
-   - Doughnut chart with percentages
-   - Color-coded categories
-   - Hover for detailed amounts
-
-3. **Income vs Expenses**
-   - Bar chart comparison
-   - Monthly breakdown
-   - Surplus/deficit visualization
-
-4. **Budget Performance**
-   - Actual spending vs limits
-   - Category-wise comparison
-   - Over/under budget indicators
-
-5. **Savings Trends**
-   - Area chart showing cumulative savings
-   - Income minus expenses over time
-
-6. **Category Trends**
-   - Multi-line chart
-   - Track multiple categories simultaneously
-   - Legacy category mapping (Transportation→Transport, etc.)
-
-**Time Range Selection:**
-- Current Month (0): Daily breakdown
-- 3 Months: Monthly trends
-- 6 Months: Half-year overview
-- 12 Months: Annual analysis
-
-### AI Financial Advisor
-
-**Starting a Conversation:**
-1. Navigate to AI Chatbot page
-2. Type your question or select a Quick Action
-3. AI analyzes your complete financial data
-4. Receive personalized advice
-
-**Quick Actions:**
-- "How much am I spending on food?"
-- "Am I on track with my budget?"
-- "Where should I cut costs?"
-- "When will I run out of money?"
-- "Analyze my spending patterns"
-- "Give me savings tips"
-
-**Context Provided to AI:**
-- Total income and expenses
-- Budget status and alerts
-- Category-wise spending breakdown
-- Daily spending rate
-- Recent transaction patterns
-
-**Chat Features:**
-- Persistent conversation history
-- Auto-scroll to latest message
-- Clear history option
-- Paginated history loading (last 50 messages)
+The chat history is stored in the database and paginated. Pre-built quick actions cover common queries like spending breakdowns, budget status checks, and savings suggestions.
 
 ### Recurring Transactions
 
-**Creating Recurring Expense/Income:**
-1. Navigate to Recurring page
-2. Select Expenses or Income tab
-3. Click "+ Add Recurring"
-4. Enter details:
-   - Amount and description/source
-   - Category (for expenses)
-   - Frequency: Daily, Weekly, Monthly, Yearly
-   - Start date
-   - End date (optional)
-5. System automatically generates transactions based on schedule
+Create templates for recurring expenses or income on daily, weekly, monthly, or yearly schedules. A node-cron job processes due transactions automatically and updates the next occurrence date. Edge cases are handled: a monthly recurring transaction set for January 31 will correctly land on February 28 or 29, and leap year dates are accounted for. Templates can be paused or given an end date after which they auto-deactivate.
 
-**Frequency Examples:**
-- **Daily**: Generates transaction every day
-- **Weekly**: Every 7 days from start date
-- **Monthly**: Same day each month (handles month-end)
-- **Yearly**: Same date each year (handles leap years)
+### Export and Reporting
 
-**Edge Cases Handled:**
-- Jan 31 recurring monthly → Feb 28/29, Mar 31, etc.
-- Leap year dates (Feb 29)
-- Month-end date adjustments
+Download expense or income reports as Excel files with formatting, color-coded categories, totals, and statistics. A comprehensive export generates a multi-sheet workbook covering expenses, income, budgets, and a summary sheet. All exports respect the current filters applied in the UI.
 
-**Processing:**
-- Automatic cron job (configurable)
-- Manual trigger via API endpoint
-- Updates next occurrence after generation
-- Auto-deactivates on end date
+### Security
+
+JWT tokens are issued on login and required on all protected endpoints via an Authorization header. Passwords are hashed with bcrypt. Token expiry is enforced server-side, and CORS is configured to restrict origins.
 
 ---
 
-## 🔌 API Documentation
+## Getting Started
 
-### Base URL
-```
-http://localhost:5000/api
-```
+### Prerequisites
 
-### Authentication
+- Node.js v16 or higher
+- PostgreSQL v12 or higher
+- A Google Gemini API key (available at makersuite.google.com)
 
-All protected endpoints require JWT token in Authorization header:
-```
-Authorization: Bearer <your-jwt-token>
-```
+### Backend Setup
 
-### Endpoints Overview
-
-#### Authentication (`/auth`)
-
-**POST /auth/signup**
-```json
-Request:
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "securepassword123"
-}
-
-Response:
-{
-  "user": {
-    "id": "uuid",
-    "name": "John Doe",
-    "email": "john@example.com"
-  },
-  "token": "jwt-token-here"
-}
+```bash
+cd budgetbuddy-backend
+npm install
+cp .env.example .env
+# fill in DATABASE_URL, JWT_SECRET, GEMINI_API_KEY, PORT
+npx prisma migrate dev
+npm start
 ```
 
-**POST /auth/login**
-```json
-Request:
-{
-  "email": "john@example.com",
-  "password": "securepassword123"
-}
+Server runs on `http://localhost:5000` by default.
 
-Response:
-{
-  "user": {
-    "id": "uuid",
-    "name": "John Doe",
-    "email": "john@example.com"
-  },
-  "token": "jwt-token-here"
-}
+### Frontend Setup
+
+Open a new terminal:
+
+```bash
+cd budgetbuddy-frontend
+npm install
+cp .env.example .env
+# set VITE_API_URL=http://localhost:5000/api
+npm run dev
 ```
 
-**GET /auth/me** (Protected)
-```json
-Response:
-{
-  "user": {
-    "id": "uuid",
-    "name": "John Doe",
-    "email": "john@example.com",
-    "createdAt": "2025-01-15T10:30:00Z"
-  }
-}
-```
-
-#### Expenses (`/expenses`)
-
-**GET /expenses** (Protected)
-```
-Query Parameters:
-- category: string (optional)
-- startDate: YYYY-MM-DD (optional)
-- endDate: YYYY-MM-DD (optional)
-- page: number (default: 1)
-- limit: number (default: 10)
-
-Response:
-{
-  "expenses": [
-    {
-      "id": "uuid",
-      "amount": 50.00,
-      "description": "Lunch at restaurant",
-      "category": "Food",
-      "date": "2025-01-15",
-      "createdAt": "2025-01-15T12:00:00Z"
-    }
-  ],
-  "pagination": {
-    "total": 100,
-    "page": 1,
-    "pages": 10
-  }
-}
-```
-
-**POST /expenses** (Protected)
-```json
-Request:
-{
-  "amount": 50.00,
-  "description": "Lunch at restaurant",
-  "category": "Food",  // Optional - AI will categorize if not provided
-  "date": "2025-01-15"
-}
-
-Response:
-{
-  "expense": {
-    "id": "uuid",
-    "amount": 50.00,
-    "description": "Lunch at restaurant",
-    "category": "Food",
-    "date": "2025-01-15",
-    "createdAt": "2025-01-15T12:00:00Z"
-  }
-}
-```
-
-**POST /expenses/categorize** (Protected)
-```json
-Request:
-{
-  "description": "Lunch at restaurant"
-}
-
-Response:
-{
-  "category": "Food",
-  "cached": false
-}
-```
-
-**PUT /expenses/:id** (Protected)
-```json
-Request:
-{
-  "amount": 55.00,
-  "description": "Updated lunch description",
-  "category": "Food",
-  "date": "2025-01-15"
-}
-```
-
-**DELETE /expenses/:id** (Protected)
-```json
-Response:
-{
-  "message": "Expense deleted successfully"
-}
-```
-
-**GET /expenses/stats** (Protected)
-```json
-Query Parameters:
-- startDate: YYYY-MM-DD (optional)
-- endDate: YYYY-MM-DD (optional)
-
-Response:
-{
-  "total": 1250.00,
-  "count": 45,
-  "average": 27.78,
-  "byCategory": {
-    "Food": 450.00,
-    "Transport": 300.00,
-    "Entertainment": 200.00
-  }
-}
-```
-
-#### Income (`/income`)
-
-Similar structure to expenses with source instead of category:
-
-**POST /income** (Protected)
-```json
-Request:
-{
-  "amount": 5000.00,
-  "source": "Salary",
-  "date": "2025-01-01"
-}
-```
-
-#### Budgets (`/budget`)
-
-**POST /budget** (Protected)
-```json
-Request:
-{
-  "category": "Food",
-  "limitAmount": 500.00,
-  "month": "2025-01-01"  // First day of month
-}
-
-Response:
-{
-  "budget": {
-    "id": "uuid",
-    "category": "Food",
-    "limitAmount": 500.00,
-    "month": "2025-01-01T00:00:00Z"
-  }
-}
-```
-
-**GET /budget/status** (Protected)
-```json
-Query Parameters:
-- month: YYYY-MM-DD (optional, defaults to current month)
-
-Response:
-{
-  "budgets": [
-    {
-      "id": "uuid",
-      "category": "Food",
-      "limitAmount": 500.00,
-      "spent": 350.00,
-      "remaining": 150.00,
-      "percentage": 70.00,
-      "status": "safe"  // safe | warning | danger
-    }
-  ]
-}
-```
-
-#### Analytics (`/analytics`)
-
-**GET /analytics/expense-trends** (Protected)
-```
-Query: months=6
-
-Response:
-{
-  "data": {
-    "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-    "values": [450, 520, 480, 510, 490, 530]
-  }
-}
-```
-
-**GET /analytics/category-breakdown** (Protected)
-```
-Query: month=2025-01
-
-Response:
-{
-  "data": {
-    "labels": ["Food", "Transport", "Entertainment"],
-    "values": [450, 300, 200],
-    "percentages": [47.37, 31.58, 21.05]
-  }
-}
-```
-
-#### Chatbot (`/chatbot`)
-
-**POST /chatbot** (Protected)
-```json
-Request:
-{
-  "message": "How much am I spending on food?"
-}
-
-Response:
-{
-  "reply": "Based on your data, you've spent $450 on food this month...",
-  "timestamp": "2025-01-15T14:30:00Z"
-}
-```
-
-**GET /chatbot/history** (Protected)
-```
-Query: limit=50
-
-Response:
-{
-  "messages": [
-    {
-      "role": "user",
-      "content": "How much am I spending?",
-      "timestamp": "2025-01-15T14:30:00Z"
-    },
-    {
-      "role": "assistant",
-      "content": "Your total spending this month is $950.",
-      "timestamp": "2025-01-15T14:30:05Z"
-    }
-  ],
-  "hasMore": false
-}
-```
-
-#### Export (`/exports`)
-
-**GET /exports/expenses/excel** (Protected)
-```
-Query Parameters:
-- category: string (optional)
-- startDate: YYYY-MM-DD (optional)
-- endDate: YYYY-MM-DD (optional)
-
-Response: Excel file download (application/vnd.openxmlformats)
-Filename: expenses_YYYY-MM-DD.xlsx
-```
-
-**GET /reports/export/comprehensive** (Protected)
-```
-Response: Multi-sheet Excel workbook
-Sheets: Summary, Expenses, Income, Budgets
-```
-
-### Error Responses
-
-```json
-{
-  "error": "Error message here",
-  "details": "Additional error details"
-}
-```
-
-**Common Status Codes:**
-- 200: Success
-- 201: Created
-- 400: Bad Request
-- 401: Unauthorized
-- 404: Not Found
-- 409: Conflict (duplicate budget)
-- 500: Internal Server Error
+Frontend runs on `http://localhost:5173`. Create an account on the signup page to get started.
 
 ---
 
-## 💾 Database Schema
+## Environment Variables
 
-### Entity Relationship Diagram
-
+**Backend (.env)**
 ```
-┌──────────────┐
-│     User     │
-├──────────────┤
-│ id (PK)      │
-│ name         │
-│ email        │◄─────────┐
-│ password     │          │
-│ createdAt    │          │
-│ updatedAt    │          │
-└──────────────┘          │
-                          │
-                          │ userId (FK)
-┌──────────────┐          │
-│   Expense    │──────────┤
-├──────────────┤          │
-│ id (PK)      │          │
-│ userId (FK)  │──────────┤
-│ amount       │          │
-│ description  │          │
-│ category     │          │
-│ date         │          │
-│ isRecurring  │          │
-│ createdAt    │          │
-└──────────────┘          │
-                          │
-┌──────────────┐          │
-│    Income    │──────────┤
-├──────────────┤          │
-│ id (PK)      │          │
-│ userId (FK)  │──────────┤
-│ amount       │          │
-│ source       │          │
-│ date         │          │
-│ isRecurring  │          │
-│ createdAt    │          │
-└──────────────┘          │
-                          │
-┌──────────────┐          │
-│ BudgetLimit  │──────────┤
-├──────────────┤          │
-│ id (PK)      │          │
-│ userId (FK)  │──────────┤
-│ category     │          │
-│ limitAmount  │          │
-│ month        │          │
-│ createdAt    │          │
-└──────────────┘          │
-                          │
-┌─────────────────┐       │
-│RecurringExpense │───────┤
-├─────────────────┤       │
-│ id (PK)         │       │
-│ userId (FK)     │───────┤
-│ amount          │       │
-│ description     │       │
-│ category        │       │
-│ frequency       │       │
-│ startDate       │       │
-│ endDate         │       │
-│ nextOccurrence  │       │
-│ isActive        │       │
-└─────────────────┘       │
-                          │
-┌─────────────────┐       │
-│ RecurringIncome │───────┤
-├─────────────────┤       │
-│ id (PK)         │       │
-│ userId (FK)     │───────┤
-│ amount          │       │
-│ source          │       │
-│ frequency       │       │
-│ startDate       │       │
-│ endDate         │       │
-│ nextOccurrence  │       │
-│ isActive        │       │
-└─────────────────┘       │
-                          │
-┌──────────────┐          │
-│ ChatMessage  │──────────┘
-├──────────────┤
-│ id (PK)      │
-│ userId (FK)  │
-│ role         │
-│ content      │
-│ timestamp    │
-└──────────────┘
-```
-
-### Table Descriptions
-
-**User**
-- Primary user account table
-- Email is unique
-- Password is hashed with bcrypt
-
-**Expense**
-- Individual expense entries
-- Category from predefined list or AI-suggested
-- Date stored in UTC
-- isRecurring flag for generated recurring expenses
-
-**Income**
-- Individual income entries
-- Source is user-defined (Salary, Freelance, etc.)
-- Date stored in UTC
-
-**BudgetLimit**
-- Monthly budget limits per category
-- Unique constraint on (userId, category, month)
-- Month stored as first day of month in UTC
-
-**RecurringExpense/RecurringIncome**
-- Templates for automatic transaction generation
-- Frequency: DAILY, WEEKLY, MONTHLY, YEARLY
-- nextOccurrence updated after each generation
-- isActive flag for enabling/disabling
-
-**ChatMessage**
-- Chatbot conversation history
-- Role: "user" or "assistant"
-- Content stores message text
-- Timestamp for chronological ordering
-
-### Indexes
-
-```sql
--- User table
-CREATE UNIQUE INDEX idx_user_email ON User(email);
-
--- Expense table
-CREATE INDEX idx_expense_user_date ON Expense(userId, date DESC);
-CREATE INDEX idx_expense_category ON Expense(category);
-
--- Income table
-CREATE INDEX idx_income_user_date ON Income(userId, date DESC);
-
--- BudgetLimit table
-CREATE UNIQUE INDEX idx_budget_unique ON BudgetLimit(userId, category, month);
-
--- ChatMessage table
-CREATE INDEX idx_chat_user_timestamp ON ChatMessage(userId, timestamp DESC);
-```
-
----
-
-## 🔐 Environment Variables
-
-### Backend (.env)
-
-```env
-# Database Connection
-DATABASE_URL="postgresql://username:password@localhost:5432/budgetbuddy"
-
-# JWT Secret (use a strong random string)
-JWT_SECRET="your-super-secret-jwt-key-minimum-32-characters"
-
-# Google Gemini API Key
-GEMINI_API_KEY="your-gemini-api-key-from-google-ai-studio"
-
-# Server Configuration
+DATABASE_URL=postgresql://user:password@localhost:5432/budgetbuddy
+JWT_SECRET=your-secret-key-minimum-32-chars
+GEMINI_API_KEY=your-gemini-api-key
 PORT=5000
 NODE_ENV=development
-
-# Optional: CORS Origins
-CORS_ORIGIN="http://localhost:5173"
+CORS_ORIGIN=http://localhost:5173
 ```
 
-### Frontend (.env)
-
-```env
-# Backend API URL
+**Frontend (.env)**
+```
 VITE_API_URL=http://localhost:5000/api
 ```
 
-### Environment Variable Details
+---
 
-**DATABASE_URL**: PostgreSQL connection string
-- Format: `postgresql://USER:PASSWORD@HOST:PORT/DATABASE`
-- Example: `postgresql://postgres:password@localhost:5432/budgetbuddy`
+## Database
 
-**JWT_SECRET**: Secret key for JWT token signing
-- Use a strong, random string (32+ characters)
-- Keep this secret and never commit to version control
-- Generate with: `openssl rand -base64 32`
-
-**GEMINI_API_KEY**: Google Gemini API key for AI features
-- Get from: https://makersuite.google.com/app/apikey
-- Required for expense categorization and chatbot
-- Free tier includes generous limits
-
-**PORT**: Backend server port (default: 5000)
-
-**NODE_ENV**: Environment mode
-- `development`: Development mode with detailed errors
-- `production`: Production mode with optimized settings
-
-**VITE_API_URL**: Frontend API endpoint
-- Must match backend URL
-- Include `/api` path prefix
-- No trailing slash
+Seven models managed through Prisma ORM: User, Expense, Income, BudgetLimit, RecurringExpense, RecurringIncome, and ChatMessage. All transaction tables reference the User table via a foreign key. Unique constraints prevent duplicate budgets for the same category and month. Indexes are set on frequently queried columns like user ID combined with date for expenses and income, and user ID combined with timestamp for chat messages.
 
 ---
 
-## 📁 Project Structure
+## API Overview
+
+Base URL: `http://localhost:5000/api`
+
+All routes except `/auth/signup` and `/auth/login` require a JWT token passed as `Authorization: Bearer <token>`.
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /auth/signup | Register a new user |
+| POST | /auth/login | Login and receive JWT token |
+| GET | /expenses | List expenses with optional filters |
+| POST | /expenses | Create a new expense |
+| POST | /expenses/categorize | Get AI category suggestion for a description |
+| GET | /expenses/stats | Aggregate stats by category and date range |
+| GET | /income | List income entries |
+| POST | /income | Create an income entry |
+| GET | /budget/status | Budget vs actual spending for a given month |
+| POST | /budget | Create a budget limit |
+| GET | /analytics/expense-trends | Expense trend data for charting |
+| GET | /analytics/category-breakdown | Category-wise spending breakdown |
+| POST | /chatbot | Send a message to the AI advisor |
+| GET | /chatbot/history | Retrieve paginated chat history |
+| GET | /exports/expenses/excel | Download filtered expense report |
+| GET | /reports/export/comprehensive | Download full multi-sheet workbook |
+
+---
+
+## Project Structure
 
 ```
 budgetbuddy/
-├── budgetbuddy-backend/
-│   ├── src/
-│   │   ├── controllers/          # Request handlers
-│   │   │   ├── authController.js
-│   │   │   ├── expenseController.js
-│   │   │   ├── incomeController.js
-│   │   │   ├── budgetController.js
-│   │   │   ├── analyticsController.js
-│   │   │   ├── chatbotController.js
-│   │   │   ├── exportController.js
-│   │   │   └── recurringController.js
-│   │   ├── routes/               # API routes
-│   │   │   ├── authRoutes.js
-│   │   │   ├── expenseRoutes.js
-│   │   │   ├── incomeRoutes.js
-│   │   │   ├── budgetRoutes.js
-│   │   │   ├── analyticsRoutes.js
-│   │   │   ├── chatbot.js
-│   │   │   ├── exportRoutes.js
-│   │   │   └── recurringRoutes.js
-│   │   ├── services/             # Business logic
-│   │   │   ├── categorizationService.js
-│   │   │   ├── chatbotService.js
-│   │   │   └── exportService.js
-│   │   ├── middleware/           # Express middleware
-│   │   │   ├── auth.js
-│   │   │   └── errorHandler.js
-│   │   ├── jobs/                 # Cron jobs
-│   │   │   └── recurringScheduler.js
-│   │   └── server.js             # Express app entry
-│   ├── prisma/
-│   │   ├── schema.prisma         # Database schema
-│   │   └── migrations/           # DB migrations
-│   ├── .env                      # Environment variables
-│   ├── .env.example             # Environment template
-│   └── package.json
-│
-├── budgetbuddy-frontend/
-│   ├── src/
-│   │   ├── pages/                # Page components
-│   │   │   ├── Dashboard.jsx
-│   │   │   ├── Expenses.jsx
-│   │   │   ├── Income.jsx
-│   │   │   ├── Budget.jsx
-│   │   │   ├── Reports.jsx
-│   │   │   ├── AIChatbot.jsx
-│   │   │   ├── Login.jsx
-│   │   │   └── Signup.jsx
-│   │   ├── components/           # Reusable components
-│   │   │   ├── common/
-│   │   │   │   └── Sidebar.jsx
-│   │   │   └── ProtectedRoute.jsx
-│   │   ├── contexts/             # React contexts
-│   │   │   ├── AuthContext.jsx
-│   │   │   └── DarkModeContext.jsx
-│   │   ├── api/                  # API configuration
-│   │   │   └── axios.js
-│   │   ├── App.jsx               # Main app component
-│   │   └── main.jsx              # Entry point
-│   ├── public/                   # Static assets
-│   ├── .env                      # Environment variables
-│   ├── .env.example             # Environment template
-│   ├── vite.config.js           # Vite configuration
-│   ├── tailwind.config.js       # Tailwind CSS config
-│   └── package.json
-│
-├── .gitignore
-├── README.md                     # This file
-└── PROJECT_STRUCTURE.md         # Detailed file documentation
-```
+  budgetbuddy-backend/
+    src/
+      controllers/     request handlers for each resource
+      routes/          API route definitions
+      services/        business logic, AI integration, export generation
+      middleware/       auth and error handling
+      jobs/            cron scheduler for recurring transactions
+    prisma/
+      schema.prisma    database schema and models
+      migrations/      versioned migration files
 
-### Key Directories
-
-**Backend Controllers**: Handle HTTP requests, validate input, call services
-**Backend Services**: Business logic, AI integration, report generation
-**Backend Routes**: Define API endpoints and middleware
-**Frontend Pages**: Full page components with routing
-**Frontend Components**: Reusable UI components
-**Frontend Contexts**: Global state management (Auth, Theme)
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-```
-MIT License
-
-Copyright (c) 2025 BudgetBuddy
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+  budgetbuddy-frontend/
+    src/
+      pages/           full page components (Dashboard, Expenses, Budget, etc.)
+      components/      reusable UI components
+      contexts/        Auth and DarkMode context providers
+      api/             Axios instance with JWT interceptor
 ```
 
 ---
 
-## 📊 Project Stats
+## License
 
-- **Lines of Code**: ~15,000+
-- **Backend Endpoints**: 40+
-- **Database Models**: 7
-- **Frontend Pages**: 8
-- **React Components**: 15+
-- **AI Integration**: Google Gemini 2.5 Flash Lite
-- **Test Coverage**: Expanding
-
----
-
-## 🎓 Learning Resources
-
-Built this project to learn? Here are key concepts covered:
-
-### Backend Concepts
-- RESTful API design
-- JWT authentication
-- Database design (PostgreSQL + Prisma)
-- Middleware patterns
-- Error handling
-- Cron jobs
-- File generation (Excel/CSV)
-- AI/ML API integration
-
-### Frontend Concepts
-- React 18 features (hooks, context)
-- React Router for SPA navigation
-- Axios for HTTP requests
-- Chart.js for data visualization
-- Tailwind CSS for styling
-- Form handling and validation
-- State management
-- Dark mode implementation
-
-### Full Stack Integration
-- CORS configuration
-- Token-based authentication flow
-- File upload/download
-- Real-time data updates
-- Optimistic UI updates
-- Error boundary handling
-
----
-
-## 🏁 Final Notes
-
-BudgetBuddy is designed to make personal finance management simple, intelligent, and accessible. Whether you're tracking daily expenses, planning budgets, or seeking financial insights, this application provides the tools you need to take control of your finances.
-
-**Key Takeaways:**
-- ✅ Complete full-stack application
-- ✅ Production-ready code quality
-- ✅ AI-powered features
-- ✅ Comprehensive documentation
-- ✅ Scalable architecture
-- ✅ Modern tech stack
-- ✅ Mobile-responsive design
-
-**Ready to get started?** Follow the [Getting Started](#getting-started) guide and begin your journey to better financial management!
-
----
-
-
+MIT
