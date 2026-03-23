@@ -1,6 +1,6 @@
 # BudgetBuddy
 
-A full-stack personal finance management app built with React and Node.js. It helps you track expenses and income, set monthly budgets, visualize spending patterns, and get AI-powered financial advice through a conversational chatbot.
+A full-stack personal finance management app built with React and Node.js. It helps you track expenses and income, set monthly budgets, visualize spending patterns, and get AI-powered financial advice through a conversational chatbot. Project is live and deployed at : budgetbuddy-wine.vercel.app/
 
 ---
 
